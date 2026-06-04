@@ -1,0 +1,7 @@
+{
+  "red-hat-developer-hub-backstage-plugin-orchestrator-backend": {
+    "workspacePath": "orchestrator/plugins/orchestrator-backend",
+    "support": "generally-available",
+    "registryReference": "quay.io/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-backend:1.11--8.9.5"
+  }
+}

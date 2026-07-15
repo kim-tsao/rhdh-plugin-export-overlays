@@ -20,7 +20,7 @@ set -euo pipefail
 #
 #   # Auto-fetch secrets from HashiCorp Vault during global setup
 #   VAULT=1 ./run-e2e.sh -w tech-radar
-#
+##
 #   # Use a local build of e2e-test-utils (for testing unpublished changes)
 #   E2E_TEST_UTILS_PATH=/path/to/rhdh-e2e-test-utils ./run-e2e.sh -w tech-radar
 #
@@ -33,7 +33,7 @@ set -euo pipefail
 #   # Coverage collection is ENABLED BY DEFAULT
 #   # Requires e2e-test-utils >= 1.x.x for automatic -coverage image swap
 #   # To disable for faster local development:
-#   E2E_COLLECT_COVERAGE=0 ./run-e2e.sh -w tech-radar
+#   E2E_COLLECT_COVERAGE=false ./run-e2e.sh -w tech-radar
 # =============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -69,11 +69,12 @@ E2E_NIGHTLY_MODE="${E2E_NIGHTLY_MODE:-false}"
 # images (plugin:tag__coverage) that e2e-test-utils will load when available.
 #
 # For nightly/local: Depends on e2e-test-utils automatic image swap logic
-# (PR #95, not yet released). Until that lands, coverage collection will be
+# (PR #95, merged 2026-06-04). Until that lands, coverage collection will be
 # skipped silently (no -coverage images exist).
 #
-# To disable (faster local dev): E2E_COLLECT_COVERAGE=0
-export E2E_COLLECT_COVERAGE="${E2E_COLLECT_COVERAGE:-1}"
+# To disable (faster local dev): E2E_COLLECT_COVERAGE=false
+# Disabled by default due to zip bomb detection failures — see RHDHBUGS-3470
+export E2E_COLLECT_COVERAGE="${E2E_COLLECT_COVERAGE:-false}"
 
 # Local e2e-test-utils: absolute path to use a local build instead of npm
 E2E_TEST_UTILS_PATH="${E2E_TEST_UTILS_PATH:-}"
@@ -264,8 +265,8 @@ for ws in "${E2E_WORKSPACES[@]}"; do
     done <<< "$PROJECTS_BLOCK"
 done
 
-if [[ "${E2E_COLLECT_COVERAGE:-}" == "1" ]]; then
-    echo "[INFO] Coverage collection enabled (E2E_COLLECT_COVERAGE=1)"
+if [[ "${E2E_COLLECT_COVERAGE:-}" == "true" ]]; then
+    echo "[INFO] Coverage collection enabled (E2E_COLLECT_COVERAGE=true)"
 fi
 
 cat > playwright.config.ts <<CONFIGEOF
@@ -310,10 +311,18 @@ echo ""
 TEST_EXIT_CODE=0
 npx playwright test "${PLAYWRIGHT_ARGS[@]+"${PLAYWRIGHT_ARGS[@]}"}" || TEST_EXIT_CODE=$?
 
-# ── Merge coverage data ──────────────────────────────────────────────────
-if [[ "${E2E_COLLECT_COVERAGE:-}" == "1" ]]; then
+# ── Coverage artifacts ───────────────────────────────────────────────────
+# The instrumented plugins emit per-test coverage JSONs (written by the
+# e2e-test-utils fixture) under node_modules/.cache/e2e-test-results/coverage,
+# which Prow publishes as run artifacts. They are deliberately NOT uploaded to
+# Codecov here: refresh-coverage-snapshot.yaml regenerates each workspace's
+# committed snapshot from those artifacts on a passing PR run, and the seed
+# (seed-coverage-main.yaml) re-attributes it to the main commit. Keeping the
+# upload out of the per-PR run means Codecov only ever reflects main, with no
+# orphan flags on PR-head commits. See the E2E coverage section in README.md.
+if [[ "${E2E_COLLECT_COVERAGE:-}" == "true" ]]; then
     if [[ -d "node_modules/.cache/e2e-test-results/coverage" ]]; then
-        "$SCRIPT_DIR/scripts/report-coverage.sh" "${E2E_WORKSPACES[@]}"
+        echo "[INFO] Coverage JSONs collected as run artifacts — the snapshot refresh workflow consumes the Prow run's copy (not this local/nightly output), so nothing is uploaded here."
     else
         echo "[INFO] Coverage collection enabled but no coverage data found."
         echo "[INFO] Ensure plugins are loaded from instrumented (-coverage) images."

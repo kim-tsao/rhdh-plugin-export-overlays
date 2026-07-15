@@ -55,6 +55,9 @@ There is no local build system — all building, testing, and publishing happens
 On a PR, comment:
 - `/publish` — Build and publish test OCI images (tagged `pr_<number>__<version>`)
 - `/smoketest` — Run smoke tests against last published artifacts (requires prior `/publish`)
+- `/override-backstage` — Override workspace Backstage compatibility version (creates `backstage.json` and rewrites metadata OCI tags)
+- `/update-versions` — Copy `versions.json` from the PR base branch onto the PR branch (release-line alignment)
+- `/update-commit` — Re-run automatic plugin repo ref discovery for the single touched workspace and update the PR
 - `/test` or `/test e2e-tests` — Run e2e tests. Only relevant for PRs that modify workspaces containing an `e2e-tests/` directory (e.g., the `backstage` workspace)
 
 ### Important Workflows (`.github/workflows/`)
@@ -63,7 +66,7 @@ On a PR, comment:
 |----------|---------|---------|
 | `update-plugins-repo-refs.yaml` | Daily + manual | Auto-generates PRs for plugin version updates |
 | `publish-workspace-plugins.yaml` | Push to release branches | Publishes final OCI images |
-| `pr-actions.yaml` | PR comments | Handles `/publish` and `/smoketest` commands |
+| `pr-actions.yaml` | PR comments | Handles `/publish`, `/smoketest`, `/override-backstage`, `/update-versions`, and `/update-commit` commands |
 | `run-workspace-smoke-tests.yaml` | After publish | Verifies plugins load in RHDH container |
 | `check-backstage-compatibility.yaml` | Push + PRs | Gates release branch creation on compatibility |
 | `sync-user-guide-to-wiki.yaml` | Weekly + manual | Syncs `user-guide/` to GitHub Wiki with placeholder injection |
@@ -410,10 +413,18 @@ oc delete project <namespace>
 
 Trigger nightly manually: comment `/test e2e-ocp-helm-nightly` on a PR.
 
+### Failure Analysis
+
+Two Claude Code skills are available at `.claude/skills/` for investigating E2E failures:
+
+- **`e2e-failure-analysis`** — structured workflow: artifact download, diagnostics, trace correlation, cluster log search, and config comparison
+- **`playwright-trace`** — Playwright trace CLI for inspecting trace ZIP files (actions, DOM snapshots, requests, console, errors)
+
 ## Documentation
 
 - `README.md` — Repo overview, PR workflow, testing procedures
-- `user-guide/` — 6-part contributor guide (getting started, export tools, ownership, metadata sync, versions, patches)
+- `user-guide/` — 6-part contributor guide (getting started, export tools, ownership, metadata sync, versions, patches) plus catalog index pipeline docs
+- `user-guide/troubleshooting-catalog-index.md` — Troubleshooting content embedded by `renderCatalogStatus.py` into each generated status page. Anchor slugs must stay in sync with `REASON_ANCHORS` in the renderer
 - `catalog-entities/extensions/README.md` — Extensions catalog metadata format
 - GitHub Wiki — Auto-synced from `user-guide/` with dynamic content injection (`{{AUTO:*}}` placeholders replaced from `versions.json`)
 - **E2E test utils docs** — https://github.com/redhat-developer/rhdh-e2e-test-utils/tree/main/docs — latest API docs, changelogs, tutorials, and configuration reference for `@red-hat-developer-hub/e2e-test-utils`

@@ -17,7 +17,8 @@ metadata:
     - software-templates
 spec:
   packageName: "@backstage-community/plugin-scaffolder-backend-module-kubernetes"
-  dynamicArtifact: ./dynamic-plugins/dist/backstage-community-plugin-scaffolder-backend-module-kubernetes-dynamic
+  # Tag: 1.11--2.17.1, Build date: 2026-07-06T11:38:54Z
+  dynamicArtifact: "oci://quay.io/rhdh/backstage-community-plugin-scaffolder-backend-module-kubernetes@sha256:3a25bdfa69332998cc64e5402cf16fbc9cad8773607cdf5841332b2a5ea7918a"
   version: 2.17.1
   backstage:
     role: backend-plugin-module

@@ -7,13 +7,9 @@
 # To update this file, trigger a rebuld of the index image from 
 # https://gitlab.cee.redhat.com/rhidp/rhdh-plugin-catalog/-/blob/rhdh-1-rhel-9/build/ci/update-index.sh
 plugins:
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-analytics-provider-segment@sha256:8029ffb06543585db0bffca84bd6588840c1d0f6abd372eb7cdfba11c4631eef
-  # Tag: 1.11--1.27.0, Build date: 2026-06-03T21:17:18Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-analytics-provider-segment
-    disabled: false
+  # Tag: 1.11--1.27.0, Build date: 2026-07-06T11:40:04Z
+  - package: oci://quay.io/rhdh/backstage-community-plugin-analytics-provider-segment@sha256:e72b582a42c482285f39af9e56fbf9f7441b6107d6092210467b1f5299f23dcb
+    enabled: true
     pluginConfig:
       dynamicPlugins:
         frontend:
@@ -34,20 +30,12 @@ plugins:
             testMode: ${SEGMENT_TEST_MODE}
             appVersion: ${RHDH_VERSION}
             backstageVersion: ${BACKSTAGE_VERSION}
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-scaffolder-backend-module-regex@sha256:7d686046e8451d48045e6e3ce3caa92ea0ac118bd85c87adf89e776c0e56f837
-  # Tag: 1.11--2.15.1, Build date: 2026-05-26T12:36:49Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-scaffolder-backend-module-regex-dynamic
-    disabled: false
-  # - package: oci://quay.io/rhdh/backstage-plugin-techdocs@sha256:b429fb7dca4ab7b118b3ad951960a1503a32750dd17bb705368267105401162e
-  # Tag: 1.11--1.17.2, Build date: 2026-06-03T21:12:19Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-techdocs
-    disabled: false
+  # Tag: bs_1.52.0__2.17.0, Build date: 2026-05-26T12:36:49Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-scaffolder-backend-module-regex@sha256:ebbc105ab4a726c974ef3150f7e156f5ce906be3bba23c65c89eb15dcc6a224b
+    enabled: true
+  # Tag: bs_1.52.0__1.17.7, Build date: 2026-06-03T21:12:19Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-techdocs@sha256:7971ed28838cef4160eae9cfef1459278bdce7109c49005c3a6ce6cd69d71e2e
+    enabled: true
     pluginConfig:
       dynamicPlugins:
         frontend:
@@ -90,13 +78,9 @@ plugins:
                   props:
                     name: Documentation
                     icon: docs
-  # - package: oci://quay.io/rhdh/backstage-plugin-techdocs-backend@sha256:daa2118de54cb15f680d4c39945363a8ec865fde9a2f73e5c3cd7ff878b26bc0
-  # Tag: 1.11--2.1.6, Build date: 2026-05-21T21:24:29Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-techdocs-backend-dynamic
-    disabled: false
+  # Tag: bs_1.52.0__2.2.1, Build date: 2026-05-21T21:24:29Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-techdocs-backend@sha256:13809e0a8a13ac5b367dc7f655f1d33c3824c0e1511a42edbd1b895178a90310
+    enabled: true
     pluginConfig:
       techdocs:
         builder: local
@@ -104,32 +88,25 @@ plugins:
           runIn: local
         publisher:
           type: local
-  # - package: oci://quay.io/rhdh/backstage-plugin-techdocs-module-addons-contrib@sha256:8e7cb9e35dfcb1bbae0358005e7ad114bf69877ac243992569b74e2055fa2f50
-  # Tag: 1.11--1.1.34, Build date: 2026-06-03T21:19:52Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-techdocs-module-addons-contrib
-    disabled: false
+  # Tag: bs_1.52.0__1.1.37, Build date: 2026-06-03T21:19:52Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-techdocs-module-addons-contrib@sha256:864fc8cfd7bbafa9653131e922a22f7b41fdd6a4bc94f44deab631263ff098b1
+    enabled: true
     pluginConfig:
       dynamicPlugins:
         frontend:
           backstage.plugin-techdocs-module-addons-contrib:
             techdocsAddons:
               - importName: ReportIssue
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-adoption-insights@sha256:18a72849538e844780759691b5761f0511a06a0dd2dfac05cfdc17b38d95c6c4
-  # Tag: 1.11--0.8.2, Build date: 2026-06-03T21:17:56Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-adoption-insights
-    disabled: false
+  # Tag: 1.11--0.8.2, Build date: 2026-07-06T11:41:18Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-adoption-insights@sha256:3f12d1d5864c8fa2a8904a0fd9d4fef7a6922abf7b0974821de7d30d7cf7b208
+    enabled: true
     pluginConfig:
       dynamicPlugins:
         frontend:
           red-hat-developer-hub.backstage-plugin-adoption-insights:
             translationResources:
               - importName: adoptionInsightsTranslations
+                module: Alpha
                 ref: adoptionInsightsTranslationRef
             appIcons:
               - name: adoptionInsightsIcon
@@ -145,13 +122,9 @@ plugins:
               adoption-insights:
                 parent: default.admin
                 icon: adoptionInsightsIcon
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-adoption-insights-backend@sha256:6e044bd6bfca95a4cfe7d20b774b0a4c2493ad502f0080ed2c6e05e71868ad51
-  # Tag: 1.11--0.8.2, Build date: 2026-05-22T15:13:50Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-adoption-insights-backend-dynamic
-    disabled: false
+  # Tag: 1.11--0.8.2, Build date: 2026-07-06T11:13:38Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-adoption-insights-backend@sha256:412865d9722e573119cf6b9315c1ce97321dd6b5557823565514610e08413f04
+    enabled: true
     pluginConfig:
       app:
         analytics:
@@ -160,36 +133,18 @@ plugins:
             flushInterval: 5000
             debug: false
             licensedUsers: 100
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-analytics-module-adoption-insights@sha256:677a42f9cac32950b0197293802e57f7f61f0e7b1cc5e36ebb84780837a5bbe3
-  # Tag: 1.11--0.8.2, Build date: 2026-06-03T21:21:00Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-analytics-module-adoption-insights-dynamic
-    disabled: false
+  # Tag: 1.11--0.8.2, Build date: 2026-07-06T11:23:13Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-analytics-module-adoption-insights@sha256:35fe53edddb2e4e0a41031c4347f7dafcb78e070fce355540e7a121ce1cb52e6
+    enabled: true
     pluginConfig:
       dynamicPlugins:
         frontend:
           red-hat-developer-hub.backstage-plugin-analytics-module-adoption-insights:
             analyticsApiExtensions:
               - importName: AdoptionInsightsAnalyticsApi
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-catalog-backend-module-extensions@sha256:c1011ad5f613254de253d5936cc4091dd2232546236f06066f53b22a9e557959
-  # Tag: 1.11--0.17.1, Build date: 2026-05-22T15:19:47Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-catalog-backend-module-extensions-dynamic
-    disabled: false
-    pluginConfig:
-      extensions:
-        directory: ${RHDH_EXTENSIONS_DIRECTORY}
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-dynamic-home-page@sha256:5bb10e756bf8b8e3c5dfb3d11c90e81b685e462966e0f10f24139ca847fa9718
-  # Tag: 1.11--1.13.1, Build date: 2026-06-03T21:07:07Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-dynamic-home-page
-    disabled: false
+  # Tag: 1.11--1.13.1, Build date: 2026-07-06T11:26:26Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-dynamic-home-page@sha256:a07039471f4e4cce30ef3fc7c0d5eba60dd0ae7cc506e8c7fda54bda17bac63a
+    enabled: true
     pluginConfig:
       dynamicPlugins:
         frontend:
@@ -313,30 +268,9 @@ plugins:
               - importName: homepageTranslations
                 ref: homepageTranslationRef
                 module: Alpha
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-global-floating-action-button@sha256:2a1c86efc997cac5a34b813cc5e0b9d05c0b99cf1faf6de77bcf4c2e0aa95aa2
-  # Tag: 1.11--1.9.3, Build date: 2026-06-03T21:08:50Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-global-floating-action-button
-    disabled: false
-    pluginConfig:
-      dynamicPlugins:
-        frontend:
-          red-hat-developer-hub.backstage-plugin-global-floating-action-button:
-            translationResources:
-              - importName: globalFloatingActionButtonTranslations
-                ref: globalFloatingActionButtonTranslationRef
-            mountPoints:
-              - mountPoint: application/listener
-                importName: DynamicGlobalFloatingActionButton
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-global-header@sha256:e4afe422519871e377b0b7d0f9f72bed1be6b08000fee65d9c87b27e44e85325
-  # Tag: 1.11--1.21.5, Build date: 2026-06-03T21:16:21Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-global-header
-    disabled: false
+  # Tag: 1.11--1.21.5, Build date: 2026-07-06T11:15:18Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-global-header@sha256:e0bf0acc1570c513ccd9bc38846ef47ce06f49c93b4d332506998ff1b7f6c04b
+    enabled: true
     pluginConfig:
       app:
         sidebar:
@@ -457,99 +391,9 @@ plugins:
                 importName: LogoutButton
                 config:
                   priority: 10
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-extensions@sha256:62aff650080aa9572d9111d205b2a2b04ae2c7ac6decbceb04581c78518c5ae0
-  # Tag: 1.11--0.17.1, Build date: 2026-06-03T21:08:05Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-extensions
-    disabled: false
-    pluginConfig:
-      dynamicPlugins:
-        frontend:
-          red-hat-developer-hub.backstage-plugin-extensions:
-            translationResources:
-              - importName: extensionsTranslations
-                ref: extensionsTranslationRef
-                module: Alpha
-            appIcons:
-              - name: pluginsIcon
-                importName: PluginsIcon
-            dynamicRoutes:
-              - path: /extensions
-                importName: DynamicExtensionsPluginRouter
-                menuItem:
-                  icon: pluginsIcon
-                  text: Extensions
-                  textKey: menuItem.extensions
-            menuItems:
-              extensions:
-                parent: default.admin
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-extensions-backend@sha256:e7113305882b5753a0de051067cc4eadfc3c073b9a9231dea8c56c7586959346
-  # Tag: 1.11--0.17.1, Build date: 2026-05-22T15:01:13Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-extensions-backend-dynamic
-    disabled: false
-    pluginConfig:
-      extensions:
-        installation:
-          enabled: false
-          saveToSingleFile:
-            file: ${RHDH_EXTENSIONS_INSTALL_EXPORT_PATH}
-  # Tag: 1.11--2.8.5, Build date: 2026-06-03T21:21:04Z
-  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-lightspeed@sha256:9ff9c1275bfc866cef38d9ffa54608a48789415699c5822b7f2648b05da3831e
-    disabled: false
-    pluginConfig:
-      lightspeed:
-        # OPTIONAL: Custom users prompts displayed to users
-        # If not provided, the plugin uses built-in default prompts
-        prompts:
-          - title: 'Getting Started with Red Hat Developer Hub'
-            message: Can you guide me through the first steps to start using Developer Hub as a developer, like exploring the Software Catalog and adding my service?
-      dynamicPlugins:
-        frontend:
-          red-hat-developer-hub.backstage-plugin-lightspeed:
-            translationResources:
-              - importName: lightspeedTranslations
-                module: Alpha
-                ref: lightspeedTranslationRef
-            dynamicRoutes:
-              - path: /lightspeed
-                importName: LightspeedPage
-            mountPoints:
-              - mountPoint: application/listener
-                importName: LightspeedFAB
-              - mountPoint: application/provider
-                importName: LightspeedDrawerProvider
-              - mountPoint: application/internal/drawer-state
-                importName: LightspeedDrawerStateExposer
-                config:
-                  id: lightspeed
-              - mountPoint: application/internal/drawer-content
-                importName: LightspeedChatContainer
-                config:
-                  id: lightspeed
-                  priority: 100
-  # Tag: 1.11--2.8.5, Build date: 2026-05-22T15:08:30Z
-  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-lightspeed-backend@sha256:3147f09ad990fbcd22a9f613d6982b4534b235a2c2d27684fc1834e196cd83ff
-    disabled: false
-    pluginConfig:
-      lightspeed:
-        # OPTIONAL: Port for lightspeed service (default: 8080)
-        servicePort: 8080
-        # OPTIONAL: MCP server name and token for MCP servers defined in LCORE config
-        # mcpServers:
-        #  - name: <mcp server name>
-        #    token: ${MCP_TOKEN}
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-quickstart@sha256:8323ee28e2bad942d272d6714a704efe57872e445aeb09b5dc165bf68162bcdb
-  # Tag: 1.11--1.9.6, Build date: 2026-06-03T21:14:06Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-quickstart
-    disabled: false
+  # Tag: 1.11--1.9.6, Build date: 2026-07-06T11:26:17Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-quickstart@sha256:11b3a3fcb13c5dfe9572a163d80cb8afd34bca27a0a844a472d9e9b5f35a6162
+    enabled: true
     pluginConfig:
       app:
         quickstart:
@@ -621,6 +465,26 @@ plugins:
             cta:
               text: View Learning Paths
               link: /learning-paths
+          - title: Set up Lightspeed
+            titleKey: steps.setupLightspeed.title
+            icon: Lightspeed
+            description: Connect Lightspeed to a supported large language model (LLM) and configure permissions to provide your AI-powered assistance to your developers.
+            descriptionKey: steps.setupLightspeed.description
+            cta:
+              text: Learn more
+              textKey: steps.setupLightspeed.ctaTitle
+              link: https://docs.redhat.com/en/documentation/red_hat_developer_hub/latest/html/interacting_with_red_hat_developer_lightspeed_for_red_hat_developer_hub/
+          - title: Get started with Lightspeed
+            titleKey: steps.getStartedWithLightspeed.title
+            icon: Lightspeed
+            roles:
+              - developer
+            description: Troubleshoot issues, generate code, and learn about platform resources using AI-powered chat.
+            descriptionKey: steps.getStartedWithLightspeed.description
+            cta:
+              text: Learn more
+              textKey: steps.getStartedWithLightspeed.ctaTitle
+              link: https://docs.redhat.com/en/documentation/red_hat_developer_hub/latest/html/interacting_with_red_hat_developer_lightspeed_for_red_hat_developer_hub/
       dynamicPlugins:
         frontend:
           red-hat-developer-hub.backstage-plugin-quickstart:
@@ -641,33 +505,9 @@ plugins:
                 importName: QuickstartButton
                 config:
                   priority: 100
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-acr@sha256:6a2e3a29ab37b4615e36ad2f4c3e3769aa5593c8bc2c9a028b66c2d20c2a0760
-  # Tag: 1.11--1.24.1, Build date: 2026-06-03T21:08:22Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-acr
-    disabled: true
-    pluginConfig:
-      dynamicPlugins:
-        frontend:
-          backstage-community.plugin-acr:
-            mountPoints:
-              - mountPoint: entity.page.image-registry/cards
-                importName: AcrImagesEntityContent
-                config:
-                  layout:
-                    gridColumn: 1 / -1
-                  if:
-                    anyOf:
-                      - isAcrAvailable
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-catalog-backend-module-keycloak@sha256:bd7d1ae67cf53aaa52676a71f27ddfdbf9021dccde43575db203f9a1c4272fb0
-  # Tag: 1.11--3.19.2, Build date: 2026-05-22T14:59:57Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-catalog-backend-module-keycloak-dynamic
-    disabled: true
+  # Tag: 1.11--3.19.2, Build date: 2026-07-06T11:18:01Z
+  - package: oci://quay.io/rhdh/backstage-community-plugin-catalog-backend-module-keycloak@sha256:ce0c9871af2d92d69a392523c550d1f069a9240441bb47ed9aa0013fc519ce21
+    enabled: false
     pluginConfig:
       catalog:
         providers:
@@ -685,44 +525,9 @@ plugins:
                   seconds: 15
                 timeout:
                   minutes: 50
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-catalog-backend-module-pingidentity@sha256:d8547ddfc756d05441b7345861be5d8f5d4a2aec1690f2a61a0b99fa39c308a8
-  # Tag: 1.11--0.11.1, Build date: 2026-05-22T14:59:58Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-catalog-backend-module-pingidentity-dynamic
-    disabled: true
-    pluginConfig:
-      catalog:
-        providers:
-          pingIdentityOrg:
-            default:
-              apiPath: ${PING_IDENTITY_API_BASE_URL}
-              authPath: ${PING_IDENTITY_AUTH_BASE_URL}
-              envId: ${PING_IDENTITY_ENV_ID}
-              clientId: ${PING_IDENTITY_CLIENT_ID}
-              clientSecret: ${PING_IDENTITY_CLIENT_SECRET}
-              schedule:
-                frequency:
-                  minutes: 30
-                timeout:
-                  minutes: 10
-                initialDelay:
-                  seconds: 15
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-catalog-backend-module-scaffolder-relation-processor@sha256:1d1441674d2631fb13b23c8738349c3f6ff56ce01ec61ac3910cf1fc8ee0190e
-  # Tag: 1.11--2.14.2, Build date: 2026-05-26T12:36:48Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-catalog-backend-module-scaffolder-relation-processor-dynamic
-    disabled: true
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-rbac@sha256:857485ec763288d645a38954ab5ad0074e47751aad054358b89f309590de6dba
-  # Tag: 1.11--1.52.4, Build date: 2026-06-03T21:19:15Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-rbac
-    disabled: true
+  # Tag: bs_1.52.0__1.55.1, Build date: 2026-06-03T21:19:15Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-rbac@sha256:0ba025731c5884a82872b1a3240f0988b3974ad49e05f8009ffbaf82cc3e8901
+    enabled: false
     pluginConfig:
       dynamicPlugins:
         frontend:
@@ -745,20 +550,12 @@ plugins:
               rbac:
                 parent: default.admin
                 icon: rbacIcon
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-scaffolder-backend-module-kubernetes@sha256:92fd28e3c92e4140fc0c037af31ef35385da68c04cc7a6e07a286a24c7de73dc
-  # Tag: 1.11--2.17.1, Build date: 2026-05-26T12:41:25Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-scaffolder-backend-module-kubernetes-dynamic
-    disabled: true
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-tech-radar@sha256:caf2952b7f0eabe6613a55a3a4c99b4fe42ee50a81babd2c49bd47de14ae0250
-  # Tag: 1.11--1.17.0, Build date: 2026-06-03T21:08:19Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-tech-radar
-    disabled: true
+  # Tag: 1.11--2.17.1, Build date: 2026-07-06T11:38:54Z
+  - package: oci://quay.io/rhdh/backstage-community-plugin-scaffolder-backend-module-kubernetes@sha256:3a25bdfa69332998cc64e5402cf16fbc9cad8773607cdf5841332b2a5ea7918a
+    enabled: false
+  # Tag: bs_1.52.0__1.20.0, Build date: 2026-06-03T21:08:19Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-tech-radar@sha256:6403f18b64076be6f41857efa3d20775fd7f38df8b87779acd2d3e8a97d3e081
+    enabled: false
     pluginConfig:
       dynamicPlugins:
         frontend:
@@ -779,23 +576,15 @@ plugins:
                   props:
                     width: 1500
                     height: 800
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-tech-radar-backend@sha256:b6b10b78b3df5437930b5683174420cae79f339919a315c4a16cf2f62a66ffe9
-  # Tag: 1.11--1.16.0, Build date: 2026-05-22T15:09:03Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-tech-radar-backend-dynamic
-    disabled: true
+  # Tag: bs_1.52.0__1.19.0, Build date: 2026-05-22T15:09:03Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-tech-radar-backend@sha256:860c5afd1de7045e1c3ee78bb2970fc6c03626bb7f6669e576d8cbdb8f4d7592
+    enabled: false
     pluginConfig:
       techRadar:
         url: ${TECH_RADAR_DATA_URL}
-  # - package: oci://quay.io/rhdh/backstage-community-plugin-topology@sha256:7610543ccb2b94c4dce54ee17f5bc1e9e76899a714600cf1276da031068ec42d
-  # Tag: 1.11--2.12.3, Build date: 2026-06-03T21:11:38Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-community-plugin-topology
-    disabled: true
+  # Tag: bs_1.52.0__2.15.0, Build date: 2026-06-03T21:11:38Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-topology@sha256:e1553c75cac67d4b671c93f5eb97041e821b2a1c082c949237828f75233c2f3e
+    enabled: false
     pluginConfig:
       dynamicPlugins:
         frontend:
@@ -815,26 +604,18 @@ plugins:
                     anyOf:
                       - hasAnnotation: backstage.io/kubernetes-id
                       - hasAnnotation: backstage.io/kubernetes-namespace
-  # - package: oci://quay.io/rhdh/backstage-plugin-catalog-backend-module-github@sha256:1ef8cdfc9fb925323b2fd55dc50ddece452adcaf3eaf8f38a4021b215eb475be
-  # Tag: 1.11--0.13.0, Build date: 2026-05-21T21:07:49Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic
-    disabled: true
+  # Tag: bs_1.52.0__0.13.3, Build date: 2026-05-21T21:07:49Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-github@sha256:e21f7687ea15d7c9869fd28b918c9152a48e2b19c5f523e4130065cab508ccb3
+    enabled: false
     pluginConfig:
       catalog:
         providers:
           github:
             providerId:
               organization: ${GITHUB_ORG}
-  # - package: oci://quay.io/rhdh/backstage-plugin-catalog-backend-module-github-org@sha256:30f95d98f18d279ca1d2191474598e2f10f144839b04065cc539eeb12c54c6e8
-  # Tag: 1.11--0.3.20, Build date: 2026-05-21T21:48:12Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-org-dynamic
-    disabled: true
+  # Tag: bs_1.52.0__0.3.23, Build date: 2026-05-21T21:48:12Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-github-org@sha256:46a1450d8189354b62376a5d99f133461c477efee1c75487eff63b46f3fb9f02
+    enabled: false
     pluginConfig:
       catalog:
         providers:
@@ -850,13 +631,9 @@ plugins:
                 seconds: 15
               timeout:
                 minutes: 15
-  # - package: oci://quay.io/rhdh/backstage-plugin-catalog-backend-module-gitlab@sha256:76c0034d8d0c4f1aa79066243dbeea1f7a912404c20a891d18038d9021500d9f
-  # Tag: 1.11--0.8.1, Build date: 2026-05-21T21:33:39Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-gitlab-dynamic
-    disabled: true
+  # Tag: bs_1.52.0__0.8.4, Build date: 2026-05-21T21:33:39Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-gitlab@sha256:48b1f9f5a1d6355e11956b62d4aab17fddfec7eeb628837791bf59735c87fc4b
+    enabled: false
     pluginConfig:
       catalog:
         providers:
@@ -871,13 +648,9 @@ plugins:
                   minutes: 3
                 initialDelay:
                   seconds: 15
-  # - package: oci://quay.io/rhdh/backstage-plugin-catalog-backend-module-gitlab-org@sha256:d074cbac598faf5313419f2d7ebba89f7f27fe1e8b39cd9b51dd65a74c955f34
-  # Tag: 1.11--0.2.19, Build date: 2026-05-21T21:07:19Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-gitlab-org-dynamic
-    disabled: true
+  # Tag: bs_1.52.0__0.2.22, Build date: 2026-05-21T21:07:19Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-gitlab-org@sha256:140bcdbda6f18ed88cd7655f26d03fa317b26dc3e867418c23b573ad5464e473
+    enabled: false
     pluginConfig:
       catalog:
         providers:
@@ -893,13 +666,9 @@ plugins:
                   minutes: 3
                 initialDelay:
                   seconds: 15
-  # - package: oci://quay.io/rhdh/backstage-plugin-catalog-backend-module-ldap@sha256:e719c6513040ce1d15ce570e80d8733938bbc878213c506a7040cbd6ac00c7c5
-  # Tag: 1.11--0.12.3, Build date: 2026-05-21T21:26:30Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-ldap-dynamic
-    disabled: true
+  # Tag: bs_1.52.0__0.12.6, Build date: 2026-05-21T21:26:30Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-ldap@sha256:fd5847b60383c418d201a0c34e5e280de2fcbe72393f8af9d180f869b4c5c8a5
+    enabled: false
     pluginConfig:
       catalog:
         providers:
@@ -924,13 +693,9 @@ plugins:
                   seconds: 15
                 timeout:
                   minutes: 15
-  # - package: oci://quay.io/rhdh/backstage-plugin-catalog-backend-module-msgraph@sha256:77ca5627b16fc59d61b28f450ebfea1037eab49ec3efaa343bd180fc269882b3
-  # Tag: 1.11--0.9.1, Build date: 2026-05-21T21:02:22Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-msgraph-dynamic
-    disabled: true
+  # Tag: bs_1.52.0__0.10.3, Build date: 2026-05-21T21:02:22Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-msgraph@sha256:5f094e313db3def6ccb7d6c115d7b77a33e34dec562f1d8db6aa0db7a3aae7f3
+    enabled: false
     pluginConfig:
       catalog:
         providers:
@@ -947,45 +712,9 @@ plugins:
                   seconds: 15
                 timeout:
                   minutes: 15
-  # Tag: 1.11--0.4.10, Build date: 2026-05-21T20:54:16Z
-  - package: oci://quay.io/rhdh/backstage-plugin-events-backend-module-github@sha256:1f8e8788a7531018482666db0719b81219758b9ea62b96ced4cda4b2de2e3958
-    disabled: true
-    pluginConfig:
-      events:
-        http:
-          topics:
-            - github
-        modules:
-          github:
-            webhookSecret: ${GITHUB_WEBHOOK_SECRET}
-  # - package: oci://quay.io/rhdh/backstage-plugin-kubernetes@sha256:612c8c491f41f7ff0617f27c9702a18a2810a287924b3e830f405ab69eb321ef
-  # Tag: 1.11--0.12.17, Build date: 2026-06-03T21:17:35Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes
-    disabled: true
-    pluginConfig:
-      dynamicPlugins:
-        frontend:
-          backstage.plugin-kubernetes:
-            mountPoints:
-              - mountPoint: entity.page.kubernetes/cards
-                importName: EntityKubernetesContent
-                config:
-                  layout:
-                    gridColumn: 1 / -1
-                  if:
-                    anyOf:
-                      - hasAnnotation: backstage.io/kubernetes-id
-                      - hasAnnotation: backstage.io/kubernetes-namespace
-  # - package: oci://quay.io/rhdh/backstage-plugin-kubernetes-backend@sha256:f5509d7478eb5a6f8ee97f9c52ad36ec0c3c73dade12eff0ffb5a2b6815e0e9d
-  # Tag: 1.11--0.21.2, Build date: 2026-05-21T21:07:46Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
-    disabled: true
+  # Tag: bs_1.52.0__0.21.5, Build date: 2026-05-21T21:07:46Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-kubernetes-backend@sha256:2bac7c0dc5fc3dc292b13e941a3e05667d666e15cd5e7ddc3191f2190e52a411
+    enabled: false
     pluginConfig:
       kubernetes:
         serviceLocatorMethod:
@@ -998,140 +727,60 @@ plugins:
                 authProvider: serviceAccount
                 skipTLSVerify: true
                 serviceAccountToken: ${K8S_CLUSTER_TOKEN}
-  # - package: oci://quay.io/rhdh/backstage-plugin-notifications@sha256:5a07642fbf1a910864fca3e4ed273f12f790cf9cb8ccbfd1e428e1145d738560
-  # Tag: 1.11--0.5.15, Build date: 2026-06-03T21:14:02Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-notifications
-    disabled: true
+  # Tag: bs_1.52.0__0.9.10, Build date: 2026-05-21T21:24:29Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-scaffolder-backend-module-github@sha256:975fad41930431e40ac80293870bc53d244df59c1bb1e193daf1251a6779f942
+    enabled: false
+  # Tag: bs_1.52.0__0.3.16, Build date: 2026-05-21T21:25:10Z
+  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-signals-backend@sha256:75799f933d49ba6054eaf3956a6b4ed0facb915d78b8bc605a30c4d8976a21b6
+    enabled: false
+  # Tag: 1.11--2.8.5, Build date: 2026-07-06T11:17:04Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-lightspeed@sha256:57314882bdac2adb0f7c2350d849fd5f7bbfdcf03112f59d543766bf191a3128
+    enabled: false
     pluginConfig:
+      lightspeed:
+        # OPTIONAL: Custom users prompts displayed to users
+        # If not provided, the plugin uses built-in default prompts
+        prompts:
+          - title: 'Getting Started with Red Hat Developer Hub'
+            message: Can you guide me through the first steps to start using Developer Hub as a developer, like exploring the Software Catalog and adding my service?
       dynamicPlugins:
         frontend:
-          backstage.plugin-notifications:
-            dynamicRoutes:
-              - importName: NotificationsPage
-                menuItem:
-                  config:
-                    props:
-                      titleCounterEnabled: true
-                      webNotificationsEnabled: false
-                  importName: NotificationsSidebarItem
-                path: /notifications
-  # - package: oci://quay.io/rhdh/backstage-plugin-notifications-backend@sha256:71a380194c316022b8cca9575da8bd1629b1d2db78ff3e26e59c06132103d05a
-  # Tag: 1.11--0.6.3, Build date: 2026-05-21T21:01:27Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-notifications-backend-dynamic
-    disabled: true
-    pluginConfig:
-      notifications:
-        concurrencyLimit: 10
-  # - package: oci://quay.io/rhdh/backstage-plugin-notifications-backend-module-email@sha256:a51572906efd70401e28a589b02b8f678d88d542113c0111e4c0d88a65c0e0db
-  # Tag: 1.11--0.3.19, Build date: 2026-05-21T21:16:42Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-notifications-backend-module-email-dynamic
-    disabled: true
-    pluginConfig:
-      notifications:
-        processors:
-          email:
-            transportConfig:
-              transport: smtp
-              hostname: ${EMAIL_HOSTNAME}
-              port: 587
-              username: ${EMAIL_USERNAME}
-              password: ${EMAIL_PASSWORD}
-            sender: ${EMAIL_SENDER}
-            broadcastConfig:
-              receiver: users
-  # - package: oci://quay.io/rhdh/backstage-plugin-scaffolder-backend-module-github@sha256:4cdd9dc09e8136a44e0aada184167ee7b6118965dd1f66ddcdfb6efbb71e5621
-  # Tag: 1.11--0.9.7, Build date: 2026-05-21T21:24:29Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-github-dynamic
-    disabled: true
-  # - package: oci://quay.io/rhdh/backstage-plugin-scaffolder-backend-module-gitlab@sha256:28f175ca7e2100a0a66dd1a2eb0423c1e36fbac1804a0cb3059b763ec7787397
-  # Tag: 1.11--0.11.4, Build date: 2026-05-21T21:20:59Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-gitlab-dynamic
-    disabled: true
-  # - package: oci://quay.io/rhdh/backstage-plugin-signals@sha256:fc597a76eb4f93c1c720263739843b3a95dc999a7bc015d368e7e8ba2fb78728
-  # Tag: 1.11--0.0.29, Build date: 2026-06-03T21:12:06Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-signals
-    disabled: true
-    pluginConfig:
-      dynamicPlugins:
-        frontend:
-          backstage.plugin-signals: {}
-  # - package: oci://quay.io/rhdh/backstage-plugin-signals-backend@sha256:94d18cc600020390b32ce86fbbff5b1626a4580aaf6be5a0efe5ecf8f8040cc8
-  # Tag: 1.11--0.3.13, Build date: 2026-05-21T21:25:10Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/backstage-plugin-signals-backend-dynamic
-    disabled: true
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-bulk-import@sha256:21bf50f78ae5e72a70c10721f89ea2bbff45817ef442bba745f318cd54f75e52
-  # Tag: 1.11--7.3.5, Build date: 2026-06-03T21:22:55Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-bulk-import
-    disabled: true
-    pluginConfig:
-      dynamicPlugins:
-        frontend:
-          red-hat-developer-hub.backstage-plugin-bulk-import:
+          red-hat-developer-hub.backstage-plugin-lightspeed:
             translationResources:
-              - importName: bulkImportTranslations
+              - importName: lightspeedTranslations
                 module: Alpha
-                ref: bulkImportTranslationRef
-            appIcons:
-              - name: bulkImportIcon
-                importName: BulkImportIcon
+                ref: lightspeedTranslationRef
             dynamicRoutes:
-              - path: /bulk-import
-                importName: BulkImportPage
-                menuItem:
-                  icon: bulkImportIcon
-                  text: Bulk import
-                  textKey: menuItem.bulkImport
-  # - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-bulk-import-backend@sha256:bf81d41a3b077ae4a2dc3462c6da9ce201a27ee7fdfcd4aafb9d80f114a16437
-  # Tag: 1.11--7.3.5, Build date: 2026-05-22T15:13:40Z
-  # new approach using oci images: to switch to the new approach, uncomment
-  # the 'package' line above and remove the next two lines, keeping the pluginConfig.
-  # disabled: true
-  - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-bulk-import-backend-dynamic
-    disabled: true
+              - path: /lightspeed
+                importName: LightspeedPage
+            mountPoints:
+              - mountPoint: application/listener
+                importName: LightspeedFAB
+              - mountPoint: application/provider
+                importName: LightspeedDrawerProvider
+              - mountPoint: application/internal/drawer-state
+                importName: LightspeedDrawerStateExposer
+                config:
+                  id: lightspeed
+              - mountPoint: application/internal/drawer-content
+                importName: LightspeedChatContainer
+                config:
+                  id: lightspeed
+                  priority: 100
+  # Tag: 1.11--2.8.5, Build date: 2026-07-06T11:15:03Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-lightspeed-backend@sha256:fb118e9735a6f6c89c96c8c7dfcc2b076ab3a43a56d347e632eaf625755973b7
+    enabled: false
     pluginConfig:
-      bulkImport:
-        importAPI: open-pull-requests
-  # Tag: 1.11--0.1.1, Build date: 2026-05-22T15:16:41Z
-  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-homepage-backend@sha256:517fcea03d5a173345fa6a4e9e94864d4064ba950b67d3bd14c977af13686573
-    disabled: true
-    pluginConfig:
-      homepage:
-        defaultWidgets:
-          - id: rhdh-onboarding-section
-            props:
-              title: Onboarding section
-          - id: rhdh-entity-section
-            props:
-              title: Entity section
-          - id: rhdh-template-section
-            props:
-              title: Template section
-  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-orchestrator:bs_1.49.4__5.7.13
-    disabled: true
+      lightspeed:
+        # OPTIONAL: Port for lightspeed service (default: 8080)
+        servicePort: 8080
+        # OPTIONAL: MCP server name and token for MCP servers defined in LCORE config
+        # mcpServers:
+        #  - name: <mcp server name>
+        #    token: ${MCP_TOKEN}
+  # Tag: 1.11--5.7.13, Build date: 2026-07-15T11:40:48Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator@sha256:b9354e1d1ebc67aa87d64a60b4b61ea22528622abfa6e34ed63c56994f8ee659
+    enabled: false
     pluginConfig:
       dynamicPlugins:
         frontend:
@@ -1150,6 +799,10 @@ plugins:
                   text: Orchestrator
                   textKey: menuItem.orchestrator
                 path: /orchestrator
+            menuItems:
+              orchestrator:
+                parent: default.admin
+                icon: orchestratorIcon
             entityTabs:
               - path: /workflows
                 title: Workflows
@@ -1164,98 +817,27 @@ plugins:
                     if:
                       anyOf:
                         - IsOrchestratorCatalogTabAvailable
-  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-orchestrator-backend:bs_1.49.4__8.9.5
-    disabled: true
+  # Tag: 1.11--8.9.5, Build date: 2026-07-15T11:39:02Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-backend@sha256:98ae5b031b3eaeac909040c13501961ad0b5b7bfb1699637d06eac5ce50afc37
+    enabled: false
     pluginConfig:
       orchestrator:
         dataIndexService:
           url: http://sonataflow-platform-data-index-service
-  # Tag: 1.11--1.2.6, Build date: 2026-05-22T15:15:55Z
-  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-backend-module-loki@sha256:77c459e27fd68f6b7ae7f89c24182c9d840bcdc1d85bd29ddc1cca8afcd30560
-    disabled: true
-    pluginConfig:
-      orchestrator:
-        workflowLogProvider:
-          loki:
-            baseUrl: ${LOKI_BASE_URL}
-            token: ${AUTH_TOKEN}
-  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-orchestrator-form-widgets:bs_1.49.4__1.10.8
-    disabled: true
+  # Tag: 1.11--1.10.8, Build date: 2026-07-15T11:36:17Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-form-widgets@sha256:99ff2087a81a5ea305212322302efb84e64a3c535263d293338bdbaa7ada41e2
+    enabled: false
     pluginConfig:
       dynamicPlugins:
         frontend:
           red-hat-developer-hub.backstage-plugin-orchestrator-form-widgets: {}
-  # Tag: 1.11--1.5.4, Build date: 2026-05-26T12:41:42Z
-  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-scaffolder-backend-module-orchestrator@sha256:e8cb33e40f6f846adaf5e0446049d5a2a5e93a2a12cf8b610e3e0e346f98005c
-    disabled: true
+  # Tag: 1.11--1.5.4, Build date: 2026-07-15T11:35:36Z
+  - package: oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-scaffolder-backend-module-orchestrator@sha256:29b63f1cc2e9d62237f0a3af4618d936fed97ffd1a985e0eded5caa5f8a344a7
+    enabled: false
     pluginConfig:
       orchestrator:
         dataIndexService:
           url: http://sonataflow-platform-data-index-service
-  # Tag: 1.11--5.6.0, Build date: 2026-05-26T12:41:25Z
-  - package: oci://quay.io/rhdh/roadiehq-scaffolder-backend-module-http-request@sha256:dac6c6cbf5caee56df0e9637ca1ff054d773f0baa5fea7a3aa7d2f626115db6f
-    disabled: true
-  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-quay:bs_1.49.4__1.32.1
-    disabled: true
-    pluginConfig:
-      dynamicPlugins:
-        frontend:
-          backstage-community.plugin-quay:
-            mountPoints:
-              - mountPoint: entity.page.image-registry/cards
-                importName: QuayPage
-                config:
-                  layout:
-                    gridColumn: 1 / -1
-                  if:
-                    anyOf:
-                      - isQuayAvailable
-  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-quay-backend:bs_1.49.4__1.14.0
-    disabled: true
-    pluginConfig:
-      quay:
-        apiUrl: "https://quay.io"
-  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-scaffolder-backend-module-quay:bs_1.49.4__2.18.0
-    disabled: true
-  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-tekton:bs_1.49.4__3.37.0
-    disabled: true
-    pluginConfig:
-      dynamicPlugins:
-        frontend:
-          backstage-community.plugin-tekton:
-            translationResources:
-              - importName: tektonTranslations
-                ref: tektonTranslationRef
-            mountPoints:
-              - mountPoint: entity.page.ci/cards
-                importName: TektonCI
-                config:
-                  layout:
-                    gridColumn: 1 / -1
-                  if:
-                    allOf:
-                      - isTektonCIAvailable
-  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-backstage-plugin-argo-cd-backend:bs_1.49.4__4.8.0
-    disabled: true
-    pluginConfig:
-      argocd:
-        username: ${ARGOCD_USERNAME}
-        password: ${ARGOCD_PASSWORD}
-        appLocatorMethods:
-          - type: config
-            instances:
-              - name: argoInstance1
-                url: ${ARGOCD_INSTANCE1_URL}
-                token: ${ARGOCD_AUTH_TOKEN}
-  - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-argocd:bs_1.49.4__1.8.1
-    disabled: true
-    pluginConfig:
-      argocd:
-        username: ${ARGOCD_USERNAME}
-        password: ${ARGOCD_PASSWORD}
-        appLocatorMethods:
-          - type: config
-            instances:
-              - name: argoInstance1
-                url: ${ARGOCD_INSTANCE1_URL}
-                token: ${ARGOCD_AUTH_TOKEN}
+  # Tag: 1.11--5.6.0, Build date: 2026-07-06T11:38:56Z
+  - package: oci://quay.io/rhdh/roadiehq-scaffolder-backend-module-http-request@sha256:234b635a011335abec8a35d4ba37c3b317ff1dd8fccce7c6cc2d813a517eb679
+    enabled: false

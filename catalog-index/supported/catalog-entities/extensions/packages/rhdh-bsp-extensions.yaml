@@ -16,7 +16,8 @@ metadata:
   tags: []
 spec:
   packageName: '@red-hat-developer-hub/backstage-plugin-extensions'
-  dynamicArtifact: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-extensions
+  # Tag: 1.11--0.17.1, Build date: 2026-07-06T11:30:31Z
+  dynamicArtifact: "oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-extensions@sha256:2c6c1274cc93bcd63166c8e1fe954cc8ba377b4b8bb1ea5107c9b459a651838d"
   version: 0.17.1
   backstage:
     role: frontend-plugin

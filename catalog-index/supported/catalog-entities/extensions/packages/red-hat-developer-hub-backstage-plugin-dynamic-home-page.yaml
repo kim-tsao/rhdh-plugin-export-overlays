@@ -16,7 +16,8 @@ metadata:
   tags: []
 spec:
   packageName: '@red-hat-developer-hub/backstage-plugin-dynamic-home-page'
-  dynamicArtifact: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-dynamic-home-page
+  # Tag: 1.11--1.13.1, Build date: 2026-07-06T11:26:26Z
+  dynamicArtifact: "oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-dynamic-home-page@sha256:a07039471f4e4cce30ef3fc7c0d5eba60dd0ae7cc506e8c7fda54bda17bac63a"
   version: 1.13.1
   backstage:
     role: frontend-plugin

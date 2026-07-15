@@ -18,8 +18,8 @@ metadata:
     - automation
 spec:
   packageName: "@red-hat-developer-hub/backstage-plugin-scaffolder-backend-module-orchestrator"
-  # Tag: 1.11--1.5.4, Build date: 2026-05-26T12:41:42Z
-  dynamicArtifact: "oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-scaffolder-backend-module-orchestrator@sha256:e8cb33e40f6f846adaf5e0446049d5a2a5e93a2a12cf8b610e3e0e346f98005c"
+  # Tag: 1.11--1.5.4, Build date: 2026-07-15T11:35:36Z
+  dynamicArtifact: "oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-scaffolder-backend-module-orchestrator@sha256:29b63f1cc2e9d62237f0a3af4618d936fed97ffd1a985e0eded5caa5f8a344a7"
   version: 1.5.4
   backstage:
     role: backend-plugin-module

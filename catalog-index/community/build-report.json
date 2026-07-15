@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "catalog-index-image": "ghcr.io/redhat-developer/rhdh-plugin-export-overlays/plugin-catalog-index:1.11-bs_1.49.4-5c45b00"
+    "catalog-index-image": "ghcr.io/redhat-developer/rhdh-plugin-export-overlays/plugin-catalog-index:1.11-bs_1.52.0-6430b38"
   },
   "plugins": {
     "backstage-community-plugin-3scale-backend": {

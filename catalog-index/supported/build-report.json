@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "catalog-index-image": "quay.io/rhdh-community/plugin-catalog-index:1.11-bs_1.52.0-6430b38"
+    "catalog-index-image": "quay.io/rhdh-community/plugin-catalog-index:1.11-bs_1.52.0-c01efbe"
   },
   "plugins": {
     "backstage-community-plugin-acr": {

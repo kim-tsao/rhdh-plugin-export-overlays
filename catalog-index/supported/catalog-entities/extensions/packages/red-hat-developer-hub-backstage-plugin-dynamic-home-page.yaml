@@ -39,7 +39,6 @@ spec:
               mountPoints:
                 - mountPoint: application/listener
                   importName: VisitListener
-
                 # the default cards
                 - mountPoint: home.page/cards
                   importName: OnboardingSection
@@ -149,7 +148,6 @@ spec:
                   config:
                     id: joke-card
                     title: Random joke
-
               translationResources:
                 - importName: homepageTranslations
                   ref: homepageTranslationRef

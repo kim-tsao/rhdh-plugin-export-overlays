@@ -37,6 +37,5 @@ spec:
           # mcpServers:
           #  - name: <mcp server name>
           #    token: ${MCP_TOKEN}
-
           # OPTIONAL: Override default RHDH system prompt
           # systemPrompt: "You are a helpful assistant focused on Red Hat Developer Hub development."

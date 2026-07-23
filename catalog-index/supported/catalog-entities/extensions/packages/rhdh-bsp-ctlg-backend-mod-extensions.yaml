@@ -16,12 +16,11 @@ metadata:
   tags: []
 spec:
   packageName: "@red-hat-developer-hub/backstage-plugin-catalog-backend-module-extensions"
-  # Tag: 1.11--0.17.1, Build date: 2026-07-06T11:29:21Z
-  dynamicArtifact: "oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-catalog-backend-module-extensions@sha256:f9858eaecd059b882c520f5cc08b3d5bdab181e5cd8ba79281543bedf78aa792"
-  version: 0.17.1
+  dynamicArtifact: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-catalog-backend-module-extensions-dynamic
+  version: 0.19.0
   backstage:
     role: backend-plugin-module
-    supportedVersions: 1.49.4
+    supportedVersions: 1.52.0
   author: Red Hat
   support: tech-preview
   lifecycle: active

@@ -29,6 +29,8 @@ spec:
     - ./backstage-community-plugin-announcements.yaml
     - ./backstage-community-plugin-argocd-backend.yaml
     - ./backstage-community-plugin-argocd.yaml
+    - ./backstage-community-plugin-auth-backend-module-keycloak-provider.yaml
+    - ./backstage-community-plugin-auth-backend-module-pingfederate-provider.yaml
     - ./backstage-community-plugin-azure-devops-backend.yaml
     - ./backstage-community-plugin-azure-devops.yaml
     - ./backstage-community-plugin-bookmarks.yaml
@@ -83,6 +85,12 @@ spec:
     - ./backstage-community-plugin-todo.yaml
     - ./backstage-community-plugin-topology.yaml
     - ./backstage-community-search-backend-module-adr.yaml
+    - ./backstage-plugin-app-visualizer.yaml
+    - ./backstage-plugin-auth-backend-module-github-provider.yaml
+    - ./backstage-plugin-auth-backend-module-gitlab-provider.yaml
+    - ./backstage-plugin-auth-backend-module-guest-provider.yaml
+    - ./backstage-plugin-auth-backend-module-microsoft-provider.yaml
+    - ./backstage-plugin-auth-backend-module-oidc-provider.yaml
     - ./backstage-plugin-auth.yaml
     - ./backstage-plugin-catalog-backend-module-bitbucket-cloud.yaml
     - ./backstage-plugin-catalog-backend-module-bitbucket-server.yaml
@@ -100,6 +108,7 @@ spec:
     - ./backstage-plugin-notifications-backend-module-email.yaml
     - ./backstage-plugin-notifications-backend.yaml
     - ./backstage-plugin-notifications.yaml
+    - ./backstage-plugin-org.yaml
     - ./backstage-plugin-scaffolder-backend-module-azure.yaml
     - ./backstage-plugin-scaffolder-backend-module-bitbucket-cloud.yaml
     - ./backstage-plugin-scaffolder-backend-module-bitbucket-server.yaml
@@ -128,29 +137,34 @@ spec:
     - ./proberaum-backstage-plugin-env-viewer.yaml
     - ./proberaum-backstage-plugin-github-notifications-backend.yaml
     - ./proberaum-backstage-plugin-icon-viewer.yaml
+    - ./red-hat-developer-hub-backstage-plugin-ai-catalog.yaml
     - ./red-hat-developer-hub-backstage-plugin-app-auth.yaml
+    - ./red-hat-developer-hub-backstage-plugin-app-defaults.yaml
     - ./red-hat-developer-hub-backstage-plugin-app-integrations.yaml
     - ./red-hat-developer-hub-backstage-plugin-bulk-import-backend.yaml
     - ./red-hat-developer-hub-backstage-plugin-bulk-import.yaml
-    - ./red-hat-developer-hub-backstage-plugin-dynamic-home-page.yaml
     - ./red-hat-developer-hub-backstage-plugin-global-header.yaml
     - ./red-hat-developer-hub-backstage-plugin-homepage-backend.yaml
     - ./red-hat-developer-hub-backstage-plugin-homepage.yaml
     - ./red-hat-developer-hub-backstage-plugin-konflux-backend.yaml
     - ./red-hat-developer-hub-backstage-plugin-konflux.yaml
+    - ./red-hat-developer-hub-backstage-plugin-kubernetes-mcp-extras.yaml
+    - ./red-hat-developer-hub-backstage-plugin-ogx-entity-provider.yaml
     - ./red-hat-developer-hub-backstage-plugin-qe-theme.yaml
-    - ./red-hat-developer-hub-backstage-plugin-scaffolder-backend-module-x2a.yaml
     - ./red-hat-developer-hub-backstage-plugin-scaffolder-mcp-extras.yaml
     - ./red-hat-developer-hub-backstage-plugin-software-catalog-mcp-extras.yaml
     - ./red-hat-developer-hub-backstage-plugin-techdocs-mcp-extras.yaml
     - ./red-hat-developer-hub-backstage-plugin-theme.yaml
-    - ./red-hat-developer-hub-backstage-plugin-translations-backend.yaml
     - ./red-hat-developer-hub-backstage-plugin-translations.yaml
     - ./red-hat-developer-hub-backstage-plugin-x2a-backend.yaml
     - ./red-hat-developer-hub-backstage-plugin-x2a-dcr.yaml
     - ./red-hat-developer-hub-backstage-plugin-x2a-mcp-extras.yaml
+    - ./red-hat-developer-hub-backstage-plugin-x2a-scaffolder-module.yaml
     - ./red-hat-developer-hub-backstage-plugin-x2a.yaml
+    - ./rhdh-backstage-plugin-scorecard-backend-module-catalog.yaml
+    - ./rhdh-backstage-plugin-scorecard-backend-module-code-coverage.yaml
     - ./rhdh-backstage-plugin-scorecard-backend-module-dependabot.yaml
+    - ./rhdh-backstage-plugin-scorecard-backend-module-dora.yaml
     - ./rhdh-backstage-plugin-scorecard-backend-module-filecheck.yaml
     - ./rhdh-backstage-plugin-scorecard-backend-module-github.yaml
     - ./rhdh-backstage-plugin-scorecard-backend-module-jira.yaml
@@ -158,17 +172,21 @@ spec:
     - ./rhdh-backstage-plugin-scorecard-backend-module-sonarqube.yaml
     - ./rhdh-backstage-plugin-scorecard-backend.yaml
     - ./rhdh-backstage-plugin-scorecard.yaml
+    - ./rhdh-bs-plugin-catalog-backend-module-ai-model-server.yaml
+    - ./rhdh-bs-plugin-catalog-backend-module-ai-resource-agent.yaml
+    - ./rhdh-bs-plugin-catalog-backend-module-ai-resource-extensions.yaml
+    - ./rhdh-bs-plugin-catalog-backend-module-mcp-registry-provider.yaml
     - ./rhdh-bs-plugin-catalog-backend-module-model-catalog.yaml
     - ./rhdh-bs-plugin-catalog-techdoc-url-reader-backend.yaml
+    - ./rhdh-bs-plugin-kserve-kubeflow-connector-backend.yaml
     - ./rhdh-bsp-adoption-insights-backend.yaml
     - ./rhdh-bsp-adoption-insights.yaml
     - ./rhdh-bsp-analytics-mod-adoption-insights.yaml
     - ./rhdh-bsp-ctlg-backend-mod-extensions.yaml
     - ./rhdh-bsp-extensions-backend.yaml
     - ./rhdh-bsp-extensions.yaml
-    - ./rhdh-bsp-global-floating-action-button.yaml
-    - ./rhdh-bsp-lightspeed-backend.yaml
-    - ./rhdh-bsp-lightspeed.yaml
+    - ./rhdh-bsp-intelligent-assistant-backend.yaml
+    - ./rhdh-bsp-intelligent-assistant.yaml
     - ./rhdh-bsp-orchestrator-backend-mod-loki.yaml
     - ./rhdh-bsp-orchestrator-backend.yaml
     - ./rhdh-bsp-orchestrator-form-widgets.yaml

@@ -15,12 +15,12 @@ metadata:
     backstage.io/source-location: url:https://github.com/redhat-developer/rhdh-plugins/tree/main/workspaces/quickstart
 spec:
   packageName: '@red-hat-developer-hub/backstage-plugin-quickstart'
-  # Tag: 1.11--1.9.6, Build date: 2026-07-06T11:26:17Z
-  dynamicArtifact: "oci://quay.io/rhdh/red-hat-developer-hub-backstage-plugin-quickstart@sha256:11b3a3fcb13c5dfe9572a163d80cb8afd34bca27a0a844a472d9e9b5f35a6162"
-  version: 1.9.6
+  # Tag: bs_1.54.6__2.1.0, Build date: 2026-07-06T11:26:17Z
+  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-quickstart@sha256:c37533d2bb6f5955277350984b7dbdb4cdf0e741caeb50a20ccdfc8956668c87"
+  version: 2.1.0
   backstage:
     role: frontend-plugin
-    supportedVersions: 1.49.4
+    supportedVersions: 1.54.6
   author: Red Hat
   support: generally-available
   lifecycle: active
@@ -99,16 +99,16 @@ spec:
               cta:
                 text: View Learning Paths
                 link: /learning-paths
-            - title: Set up Lightspeed
+            - title: Set up Intelligent Assistant
               titleKey: steps.setupLightspeed.title
               icon: Lightspeed
-              description: Connect Lightspeed to a supported large language model (LLM) and configure permissions to provide your AI-powered assistance to your developers.
+              description: Connect Intelligent Assistant to a supported large language model (LLM) and configure permissions to provide your AI-powered assistance to your developers.
               descriptionKey: steps.setupLightspeed.description
               cta:
                 text: Learn more
                 textKey: steps.setupLightspeed.ctaTitle
                 link: https://docs.redhat.com/en/documentation/red_hat_developer_hub/latest/html/interacting_with_red_hat_developer_lightspeed_for_red_hat_developer_hub/
-            - title: Get started with Lightspeed
+            - title: Get started with Intelligent Assistant
               titleKey: steps.getStartedWithLightspeed.title
               icon: Lightspeed
               roles:
@@ -126,16 +126,21 @@ spec:
                 - importName: quickstartTranslations
                   module: Alpha
                   ref: quickstartTranslationRef
+              # Legacy exports require `module: Legacy` — they are not available on the default module.
               mountPoints:
                 - mountPoint: application/provider
                   importName: QuickstartDrawerProvider
+                  module: Legacy
                 - mountPoint: application/internal/drawer-state
                   importName: QuickstartDrawerStateExposer
+                  module: Legacy
                 - mountPoint: application/internal/drawer-content
                   importName: QuickstartDrawerContent
+                  module: Legacy
                   config:
                     id: quickstart
                 - mountPoint: global.header/help
                   importName: QuickstartButton
+                  module: Legacy
                   config:
                     priority: 100

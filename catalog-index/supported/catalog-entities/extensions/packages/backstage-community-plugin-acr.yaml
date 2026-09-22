@@ -16,12 +16,11 @@ metadata:
   tags: []
 spec:
   packageName: "@backstage-community/plugin-acr"
-  # Tag: 1.11--1.24.1, Build date: 2026-07-06T20:54:02Z
-  dynamicArtifact: "oci://quay.io/rhdh/backstage-community-plugin-acr@sha256:95b2da237929c0c0ba603eec2b4e53de376abdb6b80f048d130b98f494ae1235"
-  version: 1.26.0
+  dynamicArtifact: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-acr:bs_1.54.6__1.28.0
+  version: 1.28.0
   backstage:
     role: frontend-plugin
-    supportedVersions: 1.52.0
+    supportedVersions: 1.54.6
   author: Red Hat
   support: community
   lifecycle: active

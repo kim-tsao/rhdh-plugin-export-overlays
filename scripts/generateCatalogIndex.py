@@ -30,11 +30,16 @@ from plugin_utils import (
     log_info,
     log_warn,
     log_error,
+    # Moved to plugin_utils so validateCatalogIndex.py can share it rather than growing
+    # another container-reference parser. Still used throughout this module, and still
+    # importable from here, which is where its tests and callers look for it.
+    parse_image_reference,
     set_debug,
 )
 
 # Global registry config
 REGISTRY_BASE = ""
+ALL_YAML_FILENAME = "all.yaml"
 
 
 def get_image_name_from_package_yaml(yaml_path: Path) -> str | None:
@@ -62,7 +67,7 @@ def build_packages_dir_image_index(packages_dir: Path) -> dict[str, Path]:
     if not packages_dir.exists():
         return index
     for f in packages_dir.glob("*.yaml"):
-        if f.name == "all.yaml":
+        if f.name == ALL_YAML_FILENAME:
             continue
         name = get_image_name_from_package_yaml(f)
         if name:
@@ -73,7 +78,6 @@ def build_packages_dir_image_index(packages_dir: Path) -> dict[str, Path]:
 def is_registry_rarc() -> bool:
     """Check if REGISTRY_BASE is registry.access.redhat.com. Used to determine if queries should be routed through quay.io for unauthenticated access."""
     return REGISTRY_BASE.startswith("registry.access.redhat.com")
-
 
 
 def get_query_registry_reference(registry_reference: str) -> str:
@@ -97,45 +101,6 @@ def get_ghcr_token(repository: str) -> str | None:
     except Exception as e:
         log_debug(f"Failed to get ghcr.io token for {repository}: {e}")
         return None
-
-
-def parse_image_reference(registry_reference: str) -> tuple[str, str, str]:
-    """Split a container image reference into its name, tag, and digest components.
-
-    Handles all combinations of tag and digest presence, including references
-    with both (tag + digest), tag only, digest only, or empty string input.
-    Tag separators vary by registry: ghcr.io uses ``bs_{bsver}__{pluginver}``
-    while quay.io/rhdh uses ``{rhdhver}--{pluginver}``.
-
-    Args:
-        registry_reference: A container image reference string, e.g.
-            ``"quay.io/rhdh/plugin:1.11--1.5.4@sha256:abc123"``.
-
-    Returns:
-        A 3-tuple of ``(image_name, tag, digest)`` where any component may
-        be an empty string if not present in the input.
-
-    Examples:
-        >>> parse_image_reference("quay.io/rhdh/plugin:1.11--1.5.4@sha256:abc123")
-        ('quay.io/rhdh/plugin', '1.11--1.5.4', 'sha256:abc123')
-        >>> parse_image_reference("quay.io/rhdh/plugin:1.11--1.5.4")
-        ('quay.io/rhdh/plugin', '1.11--1.5.4', '')
-        >>> parse_image_reference("quay.io/rhdh/plugin@sha256:abc123")
-        ('quay.io/rhdh/plugin', '', 'sha256:abc123')
-        >>> parse_image_reference("")
-        ('', '', '')
-    """
-    if not registry_reference:
-        return "", "", ""
-
-    name_with_tag, sep, digest = registry_reference.partition('@')
-
-    last_slash = name_with_tag.rfind('/')
-    last_colon = name_with_tag.rfind(':')
-    if last_colon > last_slash:
-        return name_with_tag[:last_colon], name_with_tag[last_colon + 1 :], digest if sep else ""
-
-    return name_with_tag, "", digest if sep else ""
 
 
 TAG_COMMENT_RE = re.compile(r'^\s*# Tag: ([^,]+), Build date: (\S+)\s*$')
@@ -385,13 +350,24 @@ def copy_workspace_metadata_files(overlays_dir: Path, output_dir: Path) -> tuple
 
     yaml_file_names = set()
     yaml_file_paths = {}
+    kept_names = set()
     for yaml_file in yaml_files:
         target_file = target_packages_dir / yaml_file.name
         log_debug(f"Copy\n  {yaml_file.relative_to(overlay_workspaces)} to\n  {target_file.relative_to(output_dir)}")
         shutil.copy2(str(yaml_file), str(target_file))
+        kept_names.add(yaml_file.name)
         base_name = yaml_file.stem
         yaml_file_names.add(base_name)
         yaml_file_paths[base_name] = Path("workspaces/" + str(yaml_file.relative_to(overlay_workspaces)))
+
+    # Drop Package entities left behind after workspace renames/removals
+    # (e.g. rhdh-bsp-lightspeed.yaml after rename to intelligent-assistant).
+    for existing in sorted(target_packages_dir.glob("*.yaml")):
+        if existing.name == ALL_YAML_FILENAME:
+            continue
+        if existing.name not in kept_names:
+            log_info(f"Removed stale package entity {existing.name}")
+            existing.unlink()
 
     return yaml_file_names, yaml_file_paths
 
@@ -896,7 +872,6 @@ def update_package_files(output_dir: Path, index_data: dict[str, dict], found_pl
             log_debug("dynamic-plugins.default.yaml not present, skipping DPDY updates")
 
 
-
 def regenerate_all_yaml_files(output_dir: Path) -> None:
     """Regenerate all.yaml files in plugins/ and packages/ directories"""
     extensions_dir = output_dir / "catalog-entities" / "extensions"
@@ -911,14 +886,14 @@ def regenerate_all_yaml_files(output_dir: Path) -> None:
 
         yaml_files = sorted([
             f.name for f in dir_path.iterdir()
-            if f.is_file() and f.suffix == '.yaml' and f.name != 'all.yaml'
+            if f.is_file() and f.suffix == '.yaml' and f.name != ALL_YAML_FILENAME
         ])
 
         if not yaml_files:
             log_warn(f"No YAML files found in {dir_path}")
             continue
 
-        all_yaml_path = dir_path / "all.yaml"
+        all_yaml_path = dir_path / ALL_YAML_FILENAME
         with open(all_yaml_path, 'w', encoding='utf-8') as f:
             f.write("apiVersion: backstage.io/v1alpha1\n")
             f.write("kind: Location\n")
@@ -941,7 +916,6 @@ def _support_label_color(label: str) -> str:
         'dev-preview': Colors.ORANGE,
     }
     return colors.get(label, Colors.RED)
-
 
 
 def main():

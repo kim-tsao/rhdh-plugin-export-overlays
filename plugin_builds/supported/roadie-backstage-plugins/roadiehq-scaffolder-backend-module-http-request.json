@@ -2,7 +2,7 @@
   "roadiehq-scaffolder-backend-module-http-request": {
     "workspacePath": "roadie-backstage-plugins/plugins/scaffolder-actions/scaffolder-backend-module-http-request",
     "registryReference": "ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-module-http-request:bs_1.54.6__5.8.0",
-    "digest": "sha256:1c9fba56342aacbab6c22fe11ab3daafac47e671007f22aa8d078c062b1d0b63",
+    "digest": "sha256:08a70c05f8bbf61e37d6831772f3308d56c0d54af9fde72783e16876f956ab66",
     "build-date": "2026-07-06T11:38:56Z",
     "upstream": "https://github.com/redhat-developer/rhdh-plugin-export-overlays/tree/main @ 7578b65121c667954a28424c4385281b2f8d95e8",
     "midstream": "https://gitlab.cee.redhat.com/rhidp/rhdh-plugin-catalog/-/commits/rhdh-1-rhel-9",

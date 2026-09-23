@@ -2,7 +2,7 @@
   "red-hat-developer-hub-backstage-plugin-orchestrator-form-widgets": {
     "workspacePath": "orchestrator/plugins/orchestrator-form-widgets",
     "registryReference": "ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-orchestrator-form-widgets:bs_1.54.6__2.2.0",
-    "digest": "sha256:b638ddb4c0ee6b7941ace9641e99977810de64a5e5745a29df01aa8b3c0b405e",
+    "digest": "sha256:d8c01faf1a29476ac2c7d6bcb2334de678e7b01fe96213ac3807b3cec62f7cc9",
     "build-date": "2026-07-15T11:36:17Z",
     "upstream": "https://github.com/redhat-developer/rhdh-plugin-export-overlays/tree/main @ b69edba1111141afe23f56791022fa0a7eca1370",
     "midstream": "https://gitlab.cee.redhat.com/rhidp/rhdh-plugin-catalog/-/commits/rhdh-1-rhel-9",

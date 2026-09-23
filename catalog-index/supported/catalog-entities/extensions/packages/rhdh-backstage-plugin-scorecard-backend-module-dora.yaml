@@ -18,7 +18,7 @@ metadata:
 spec:
   packageName: "@red-hat-developer-hub/backstage-plugin-scorecard-backend-module-dora"
   # Tag: bs_1.54.6__0.2.1
-  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-scorecard-backend-module-dora@sha256:7069f83557a0e96440a4de2e79bbd0e49153fd163658385d092e526a4971f0d1"
+  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-scorecard-backend-module-dora@sha256:1818ecb17de4b51ed1c1b2701b7b6b3721ea851078897cb9067d4224d6bf6688"
   version: 0.2.1
   backstage:
     role: backend-plugin-module

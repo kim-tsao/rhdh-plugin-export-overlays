@@ -203,8 +203,6 @@ Comment on your workspace PR:
 | No `backstage.json` | `backstage.json` with `{"version": "1.49.4"}` |
 | `dynamicArtifact: oci://...:bs_1.48.3__7.0.1` | `dynamicArtifact: oci://...:bs_1.49.4__7.0.1` |
 
-> **Note:** Metadata files with local paths (e.g., `./dynamic-plugins/dist/...`) are left unchanged.
-
 ---
 
 ## Version Fields Reference
@@ -332,6 +330,8 @@ This badge shows whether mandatory plugins are compatible with the target versio
 ---
 
 ## Release Branch Considerations
+
+To **create** a new `release-x.y` branch from `main`, see [08 - Creating Release Branches](./08-creating-release-branches.md). This section covers how release branches behave and how to **update** them after they exist.
 
 ### main Branch
 

@@ -16,12 +16,12 @@ metadata:
   tags: []
 spec:
   packageName: "@backstage/plugin-techdocs-module-addons-contrib"
-  # Tag: bs_1.54.6__1.1.39, Build date: 2026-06-03T21:19:52Z
-  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-techdocs-module-addons-contrib@sha256:390f1bcbbb7def9a2fdca4491501534d34fad781980a8755913b73e8f9eae6c9"
+  # Tag: bs_1.54.9__1.1.39, Build date: 2026-06-03T21:19:52Z
+  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-techdocs-module-addons-contrib@sha256:75d40aa3cb7f62b02be753b5df52399ff660e3de5eaa4fe0c9951b187891e152"
   version: 1.1.39
   backstage:
     role: frontend-plugin-module
-    supportedVersions: 1.54.6
+    supportedVersions: 1.54.9
   author: Red Hat
   support: generally-available
   lifecycle: active

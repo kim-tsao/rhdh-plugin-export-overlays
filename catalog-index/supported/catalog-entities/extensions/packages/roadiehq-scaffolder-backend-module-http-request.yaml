@@ -17,13 +17,13 @@ metadata:
     - software-templates
 spec:
   packageName: "@roadiehq/scaffolder-backend-module-http-request"
-  # Tag: bs_1.54.6__5.8.0, Build date: 2026-07-06T11:38:56Z
-  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-module-http-request@sha256:7f58792d236680d526b5ac3ccea81dbbc1e0516987d1ce25ea6e23afafc48781"
-  version: 5.8.0
+  # Tag: bs_1.54.9__5.9.0, Build date: 2026-07-06T11:38:56Z
+  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-module-http-request@sha256:2efd11b3b136240ac0f3be8fbec1368c4ccf3dcd8c9bc05536be7b0b263f9182"
+  version: 5.9.0
   backstage:
     role: backend-plugin-module
     supportedVersions: 1.54.6
-    author: Roadie
+  author: Roadie
   support: generally-available
   lifecycle: active
   partOf:

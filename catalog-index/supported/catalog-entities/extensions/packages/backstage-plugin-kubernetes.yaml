@@ -16,12 +16,12 @@ metadata:
   tags: []
 spec:
   packageName: "@backstage/plugin-kubernetes"
-  # Tag: bs_1.54.6__0.12.22, Build date: 2026-06-03T21:17:35Z
-  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-kubernetes@sha256:5181b62efa97e98e8e1c83bfe467fbd30716d218078f7c66502bc9e306f4a0b1"
+  # Tag: bs_1.54.9__0.12.22, Build date: 2026-06-03T21:17:35Z
+  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-kubernetes@sha256:75e29f72483a88dba1d750fd6d47401e742171984dda51978c598b7ba907e3c7"
   version: 0.12.22
   backstage:
     role: frontend-plugin
-    supportedVersions: 1.54.6
+    supportedVersions: 1.54.9
   author: Red Hat
   support: generally-available
   lifecycle: active

@@ -17,12 +17,12 @@ metadata:
     - authentication
 spec:
   packageName: "@backstage/plugin-auth-backend-module-guest-provider"
-  # Tag: bs_1.54.6__0.2.22
-  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-auth-backend-module-guest-provider@sha256:751bb81df1c033f7995c694efb6cb4fedb85ed262cb5bbfadea2d9921c9a3403"
+  # Tag: bs_1.54.9__0.2.22
+  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-auth-backend-module-guest-provider@sha256:1163cb91c56d7318629c33f353dd7dba84e52df2f1565a01ad2091d52abb76bc"
   version: 0.2.22
   backstage:
     role: backend-plugin-module
-    supportedVersions: 1.54.6
+    supportedVersions: 1.54.9
   author: Red Hat
   support: generally-available
   lifecycle: active

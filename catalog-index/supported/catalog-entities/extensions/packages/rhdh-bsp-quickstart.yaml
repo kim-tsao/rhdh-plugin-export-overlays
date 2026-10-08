@@ -15,8 +15,8 @@ metadata:
     backstage.io/source-location: url:https://github.com/redhat-developer/rhdh-plugins/tree/main/workspaces/quickstart
 spec:
   packageName: '@red-hat-developer-hub/backstage-plugin-quickstart'
-  # Tag: bs_1.54.6__2.2.0, Build date: 2026-07-06T11:26:17Z
-  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-quickstart@sha256:657ebd28382e305874c3784400cfa89eeb147879806b63e1d8717badcb1b1732"
+  # Tag: bs_1.54.9__2.2.0, Build date: 2026-07-06T11:26:17Z
+  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-quickstart@sha256:7cd8f513b9b61f211ae75b883a31df0f17d3ab77a23af1410d7c43274227148b"
   version: 2.2.0
   backstage:
     role: frontend-plugin

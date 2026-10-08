@@ -17,12 +17,12 @@ metadata:
     - authentication
 spec:
   packageName: "@backstage/plugin-auth-backend-module-oidc-provider"
-  # Tag: bs_1.54.6__0.4.20
-  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-auth-backend-module-oidc-provider@sha256:e72e7b024243a4ffc8371131e5169418810fde24d082c47cdb61196bbee6a31f"
+  # Tag: bs_1.54.9__0.4.20
+  dynamicArtifact: "oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-auth-backend-module-oidc-provider@sha256:7e390954699de01d0f4e5cf4ae435d0bb926a409034a447b89ca652030f7757e"
   version: 0.4.20
   backstage:
     role: backend-plugin-module
-    supportedVersions: 1.54.6
+    supportedVersions: 1.54.9
   author: Red Hat
   support: generally-available
   lifecycle: active
